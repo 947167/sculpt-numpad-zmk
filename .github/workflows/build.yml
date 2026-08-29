@@ -27,7 +27,7 @@ jobs:
 
       - name: Build firmware
         run: |
-          west build -s zmk/app -b nice_nano_v2 -- \
+          west build -s zmk/app -b "nice_nano//zmk" -- \
             -DSHIELD="sculpt_numpad" \
             -DZMK_CONFIG="$PWD/config"
         timeout-minutes: 10
