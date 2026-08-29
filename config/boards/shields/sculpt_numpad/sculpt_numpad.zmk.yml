@@ -1,0 +1,9 @@
+file_format: "1"
+id: sculpt_numpad
+name: Sculpt Numpad
+type: shield
+url: https://github.com/your-username/sculpt-numpad-zmk
+requires:
+  - nice_nano_v2
+exposes: [keymap]
+description: Microsoft Sculpt Ergonomic Numpad converted to Bluetooth with nice!nano

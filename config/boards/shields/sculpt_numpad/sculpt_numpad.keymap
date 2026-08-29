@@ -1,0 +1,54 @@
+/*
+ * Microsoft Sculpt Ergonomic Numpad - ZMK Keymap
+ * 
+ * Matrix layout (6 rows x 4 cols):
+ * 
+ * Row0: [NumLock] [Calculator] [Backspace] [  empty  ]
+ * Row1: [Clear(C)] [    /    ] [    *    ] [    -   ]
+ * Row2: [   7   ] [   9   ] [   8   ] [   +   ]
+ * Row3: [   4   ] [   6   ] [  empty] [   5   ]
+ * Row4: [   1   ] [   3   ] [   2   ] [ Enter  ]
+ * Row5: [ empty ] [ empty ] [   0   ] [   .   ]
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            label = "Base";
+            bindings = <
+    // Row 0
+    &kp C_NUMLOCK    &kp C_CALCULATOR &kp C_BACKSPACE
+    // Row 1
+    &kp C_KP_CLEAR   &kp C_KP_SLASH    &kp C_KP_ASTERISK &kp C_KP_MINUS
+    // Row 2
+    &kp C_KP_NUM_7   &kp C_KP_NUM_9    &kp C_KP_NUM_8    &kp C_KP_PLUS
+    // Row 3
+    &kp C_KP_NUM_4   &kp C_KP_NUM_6                       &kp C_KP_NUM_5
+    // Row 4
+    &kp C_KP_NUM_1   &kp C_KP_NUM_3    &kp C_KP_NUM_2    &kp C_KP_ENTER
+    // Row 5
+                                        &kp C_KP_NUM_0    &kp C_KP_DOT
+            >;
+        };
+
+        // Function layer (hold NumLock to activate)
+        fn_layer {
+            label = "FN";
+            bindings = <
+    &bt BT_CLR   &bt BT_NXT   &trans
+    &out OUT_BLE &out OUT_USB &trans &trans
+    &trans       &trans       &trans &trans
+    &trans       &trans              &trans
+    &trans       &trans       &trans &trans
+                              &trans &trans
+            >;
+        };
+    };
+};
