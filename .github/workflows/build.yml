@@ -7,33 +7,4 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: |
-          sudo apt update
-          sudo apt install -y cmake ninja-build gperf device-tree-compiler gcc-arm-none-eabi python3-pip
-          pip3 install west
-
-      - name: Initialize west workspace
-        run: west init -l config
-
-      - name: Update west modules
-        run: west update
-        timeout-minutes: 15
-
-      - name: Build firmware
-        run: |
-          west build -s zmk/app -b "nice_nano//zmk" -- \
-            -DSHIELD="sculpt_numpad" \
-            -DZMK_CONFIG="$PWD/config"
-        timeout-minutes: 10
-
-      - name: Upload firmware
-        uses: actions/upload-artifact@v4
-        with:
-          name: firmware
-          path: build/zephyr/zmk.uf2
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
