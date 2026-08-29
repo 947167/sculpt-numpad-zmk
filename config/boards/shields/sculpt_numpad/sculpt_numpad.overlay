@@ -19,6 +19,8 @@
  * RC(row,col) = (row << 8) + col
  */
 
+#include <dt-bindings/gpio/gpio.h>
+
 / {
 	model = "Microsoft Sculpt Ergonomic Numpad";
 	compatible = "zmk,shield-sculpt-numpad";
