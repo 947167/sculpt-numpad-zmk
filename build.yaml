@@ -1,4 +1,3 @@
 include:
   - board: nice_nano//zmk
     shield: sculpt_numpad
-    cmake-args: -DKCONFIG_WARNINGS_AS_ERRORS=n
