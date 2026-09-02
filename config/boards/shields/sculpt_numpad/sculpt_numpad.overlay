@@ -69,3 +69,9 @@
 		transform = <&default_transform>;
 	};
 };
+
+&usbd {
+	cdc_acm_uart: cdc-acm-uart {
+		compatible = "zephyr,cdc-acm-uart";
+	};
+};
